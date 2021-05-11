@@ -1,3 +1,9 @@
 import sys
 print(sys.path)
-print("hello,world")
+def hello():
+    print("hello,world")
+
+def test():
+    hello();
+if __name__ == '__main__':
+    test()
