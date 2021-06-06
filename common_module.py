@@ -1,6 +1,7 @@
 import sys, pprint
 import os
 import fileinput
+import re
 
 pprint.pprint(sys.path)
 def hello():
@@ -18,6 +19,13 @@ def poker():
     values = list(range(1,10)) + "Jack Queen King".split()
     suits = 'diamonds clubs hearts spades'.split()
     deck = ['{} {}'.format(v,s) for v in values for s in suits]
+
+def find_sender():
+    pat = re.compile('From: (.*) <.*?>$')
+    for line in fileinput.input():
+        m = pat.match(line)
+        if m : print(m.group(1))
+
 if __name__ == '__main__':
     deck = {}
     poker()
