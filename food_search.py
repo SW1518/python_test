@@ -10,6 +10,6 @@ print(query)
 curs.execute(query)
 names = [f[0] for f in curs.description]
 for row in curs.fetchall():
-    for pair in zip(name, row):
+    for pair in zip(names, row):
         print('{}: {}'.format(*pair))
     print()
